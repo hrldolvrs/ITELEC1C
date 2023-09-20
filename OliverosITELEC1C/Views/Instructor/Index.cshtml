@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<OliverosITELEC1C.Models.Instructor>;
-
+<h1>Instructor Index</h1>
 <table class="table table-dark">
 
     <tr>
-        <th colspan="6">Instructor</th>
+        <th colspan="7">Instructor</th>
     </tr>
 
     <tr>
@@ -12,8 +12,8 @@
         <td>Permanence</td>
         <td>Rank</td>
         <td>Date Hired</td>
-
-
+        <td></td>
+        <td></td>
     </tr>
     @foreach (var Instructor in Model)
     {
@@ -24,7 +24,9 @@
             <td>@Instructor.Rank</td>
             <td>@Instructor.HiringDate</td>
             <td><a asp-action="ShowDetail" asp-route-id="@Instructor.Id">Show Details</a></td>
+            <td><a asp-action="EditInstructor" asp-route-id="@Instructor.Id">Edit Info</a></td>
 
         </tr>
     }
 </table>
+<a class="btn btn-primary" asp-action="AddInstructor">Add Instructor</a>

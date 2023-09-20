@@ -1,0 +1,46 @@
+﻿@model Instructor;
+
+<body>
+    <h1>Add Instructor</h1>
+    <div class="main-container">
+        <h2 style="font-size: 50px; color:#d17724; font-weight: lighter; text-align: center;">Instructor Update</h2>
+        <div class="container">
+            <form asp-action="EditInstructor" asp-controller="Instructor" method="post">
+                <div class="form-group">
+                    <label asp-for="Id">Instructor ID</label>
+                    <input asp-for="Id" class="form-control" id="Id" placeholder="Enter ID Here" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="InstructorFirstName">First Name</label>
+                    <input asp-for="InstructorFirstName" class="form-control" id="InstructorFirstName" placeholder="Enter First Name Here" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="InstructorLastName">Last Name</label>
+                    <input asp-for="InstructorLastName" class="form-control" id="InstructorLastName" placeholder="Enter Last Name Here" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="InstructorIsTenured">Permanence (Permanent or Temporary)</label>
+                    <input asp-for="InstructorIsTenured" class="form-control" id="InstructorIsTenured" placeholder="Enter Permanence Here" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Rank">Rank</label>
+                    <select asp-for="Rank" asp-items="@Html.GetEnumSelectList(typeof(Rank))" class="form-control"
+                            id="Rank" placeholder="Choose Rank"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="HiringDate">Date Hired</label>
+                    <input asp-for="HiringDate" class="form-control" id="HiringDate" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" onclick="history.back()" class="btn btn-default">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+

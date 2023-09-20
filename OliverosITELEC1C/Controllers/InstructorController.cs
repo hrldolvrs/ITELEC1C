@@ -49,5 +49,46 @@ namespace OliverosITELEC1C.Controllers
 
             return NotFound();
         }
+
+        [HttpGet]
+        public IActionResult AddInstructor()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddInstructor(Instructor newInstructor)
+        {
+            InstructorList.Add(newInstructor);
+            return View("Index", InstructorList);
+        }
+
+        [HttpGet]
+        public IActionResult EditInstructor(int ID)
+        {
+            Instructor? inst = InstructorList.FirstOrDefault(il => il.Id == ID);
+
+            if (inst != null)
+                return View(inst);
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult EditInstructor(Instructor instructorChange)
+        {
+            Instructor? inst = InstructorList.FirstOrDefault(st => st.Id == instructorChange.Id);
+            if (inst != null)
+            {
+                inst.Id = instructorChange.Id;
+                inst.InstructorFirstName = instructorChange.InstructorFirstName;
+                inst.InstructorLastName = instructorChange.InstructorLastName;
+                inst.InstructorIsTenured = instructorChange.InstructorIsTenured;
+                inst.Rank = instructorChange.Rank;
+                inst.HiringDate = instructorChange.HiringDate;
+
+            }
+            return View("Index", InstructorList);
+        }
     }
 }

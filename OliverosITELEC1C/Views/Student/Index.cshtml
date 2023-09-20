@@ -1,27 +1,31 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<OliverosITELEC1C.Models.Student>;
+<h1>Student Index</h1>
+<table class="table table-dark">
 
+    <tr>
+        <th colspan="7">Student</th>
+    </tr>
 
-
-<h1>Student List</h1>
-<table>
     <tr>
-        <td>Name: </td>
-        <td>@ViewBag.Student.StudentName</td>
+        <td>Name</td>
+        <td>Student ID</td>
+        <td>Admission Date</td>
+        <td>Course</td>
+        <td>Student Email</td>
+        <td></td>
+        <td></td>
     </tr>
-    <tr>
-        <td>Date Enrolled: </td>
-        <td>@ViewBag.Student.DateEnrolled</td>
-    </tr>
-    <tr>
-        <td>Course: </td>
-        <td>@ViewBag.Student.Course</td>
-    </tr>
-    <tr>
-        <td>Email: </td>
-        <td>@ViewBag.Student.Email</td>
-    </tr>
+    @foreach (var Student in Model)
+    {
+        <tr>
+            <td>@Student.StudentName</td>
+            <td>@Student.StudentId</td>
+            <td>@Student.DateEnrolled</td>
+            <td>@Student.Course</td>
+            <td>@Student.StudentEmail</td>
+            <td><a asp-action="ShowDetail" asp-route-id="@Student.StudentId">Show Details</a></td>
+            <td><a asp-action="EditStudent" asp-route-id="@Student.StudentId">Edit Info</a></td>
+        </tr>
+    }
 </table>
+<a class="btn btn-primary" asp-action="AddStudent">Add Student</a>

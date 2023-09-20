@@ -1,0 +1,40 @@
+﻿@model Student;
+
+<body>
+    <h1>Add Student</h1>
+    <div class="main-container">
+        <h2 style="font-size: 50px; color:#d17724; font-weight: lighter; text-align: center;">Student Registration</h2>
+        <div class="container">
+            <form asp-action = "AddStudent" asp-controller = "Student" method = "post">
+                <div class="form-group">
+                    <label asp-for="StudentId">Student ID</label>
+                    <input asp-for="StudentId" class="form-control" id="StudentId" placeholder="Enter ID Here" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="StudentName">Full Name</label>
+                    <input asp-for="StudentName" class="form-control" id="StudentName" placeholder="Enter Full Name Here" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DateEnrolled">Admission Date</label>
+                    <input asp-for="DateEnrolled" class="form-control" id="DateEnrolled"/>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Course">Course</label>
+                    <select asp-for="Course" asp-items="@Html.GetEnumSelectList(typeof(Course))" class="form-control" 
+                    id="Course" placeholder="Choose Course"></select>
+                </div>
+
+                <div class="University Email">
+                    <label asp-for="StudentEmail">University Email</label>
+                    <input asp-for="StudentEmail" class="form-control" id="StudentEmail" placeholder="Enter Email Here" />
+                </div>
+
+                <button type = "submit" class = "btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
